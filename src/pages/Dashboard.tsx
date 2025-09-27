@@ -1,24 +1,21 @@
-import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
-import { User, FileText, School, TrendingUp, Plus, Loader as Loader2, CircleAlert as AlertCircle, Clock, CircleCheck as CheckCircle, Circle as XCircle } from 'lucide-react';
+import { FileText, School, TrendingUp, Plus, Loader as Loader2, CircleAlert as AlertCircle, Clock, CircleCheck as CheckCircle, Circle as XCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
+
 import { 
   AlertDialog, AlertDialogAction, AlertDialogCancel, 
   AlertDialogContent, AlertDialogDescription, 
-  AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, 
-  AlertDialogTrigger 
+  AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 import { toast } from 'sonner';
 import { ApplicationCard } from '../components/applications/ApplicationCard';
 import { 
   useGetApplicationsQuery, 
   useDeleteApplicationMutation,
-  useGetSchoolsQuery 
 } from '../store/api/apiSlice';
 import { useAuth } from '../hooks/useAuth';
 import type { Application } from '../types/api';
@@ -26,11 +23,11 @@ import type { Application } from '../types/api';
 export function Dashboard() {
   const { user } = useAuth();
   const { data: applicationsData, isLoading: isLoadingApplications, error: applicationsError } = useGetApplicationsQuery();
-  const { data: schoolsData } = useGetSchoolsQuery();
+
   const [deleteApplication, { isLoading: isDeletingApplication }] = useDeleteApplicationMutation();
 
   const applications = applicationsData?.data || [];
-  const schools = schoolsData?.data || [];
+
 
   // Group applications by status
   const groupedApplications = applications.reduce((acc, app) => {
@@ -198,9 +195,10 @@ export function Dashboard() {
                   <AlertDialog key={application.id}>
                     <ApplicationCard 
                       application={application}
-                      onDelete={(id) => {
-                        // This will be handled by the AlertDialog
-                      }}
+                      // onDelete={(id) => {
+                      //   // This will be handled by the AlertDialog
+                      //  sss
+                      // }}
                     />
                     <AlertDialogContent>
                       <AlertDialogHeader>
