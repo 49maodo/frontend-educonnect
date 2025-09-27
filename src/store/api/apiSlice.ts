@@ -11,8 +11,12 @@ import type {
   AuthResponse,
 } from '@/types/api';
 
+const apiUrl = import.meta.env.VITE_API_URL
+    ? `${import.meta.env.VITE_API_URL}/api`
+    : 'http://localhost:8000/api';
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${import.meta.env.VITE_API_URL + '/api'}` ||'http://localhost:8000/api',
+  baseUrl: apiUrl,
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
     if (token) {

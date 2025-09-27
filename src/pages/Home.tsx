@@ -56,9 +56,9 @@ export function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 text-center bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+      <section className="relative py-20 px-4 text-center bg-linear-to-br from-primary/10 via-background to-secondary/10">
         <div className="container mx-auto max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Trouvez l'École de Vos Rêves
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -141,7 +141,7 @@ export function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-secondary/5">
+      <section className="py-16 px-4 bg-linear-to-r from-primary/5 to-secondary/5">
         <div className="container mx-auto text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Prêt à Commencer Votre Parcours ?
