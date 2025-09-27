@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { RootState } from '../index';
+import {RootState} from "@/store";
 import type {
-  User,
   School,
   Diploma,
   Application,
@@ -10,10 +9,10 @@ import type {
   ApplicationRequest,
   ApiResponse,
   AuthResponse,
-} from '../../types/api';
+} from '@/types/api';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://127.0.0.1:8000/api',
+  baseUrl: `${import.meta.env.VITE_API_URL + '/api'}` ||'http://localhost:8000/api',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
     if (token) {
@@ -66,7 +65,7 @@ export const apiSlice = createApi({
     }),
     getSchool: builder.query<ApiResponse<School>, number>({
       query: (id) => `/school/${id}`,
-      providesTags: (result, error, id) => [{ type: 'School', id }],
+      providesTags: ['School'],
     }),
 
     // Diplomas endpoints
@@ -76,7 +75,7 @@ export const apiSlice = createApi({
     }),
     getDiploma: builder.query<ApiResponse<Diploma>, number>({
       query: (id) => `/diploma/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Diploma', id }],
+      providesTags: ['Diploma'],
     }),
 
     // Applications endpoints
@@ -86,7 +85,7 @@ export const apiSlice = createApi({
     }),
     getApplication: builder.query<ApiResponse<Application>, number>({
       query: (id) => `/application/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Application', id }],
+      providesTags: ['Application'],
     }),
     createApplication: builder.mutation<ApiResponse<Application>, ApplicationRequest>({
       query: (applicationData) => ({

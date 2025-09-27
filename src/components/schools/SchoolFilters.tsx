@@ -128,7 +128,7 @@ export function SchoolFilters({ schools, onFilterChange }: SchoolFiltersProps) {
                     <SelectValue placeholder="Toutes les villes" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">Toutes les villes</SelectItem>
+                    {/*<SelectItem value="all">Toutes les villes</SelectItem>*/}
                     {cities.map(city => (
                       <SelectItem key={city} value={city}>{city}</SelectItem>
                     ))}
@@ -144,7 +144,7 @@ export function SchoolFilters({ schools, onFilterChange }: SchoolFiltersProps) {
                     <SelectValue placeholder="Toutes les filières" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Toutes les filières</SelectItem>
+                    {/*<SelectItem value="">Toutes les filières</SelectItem>*/}
                     {fields.map(field => (
                       <SelectItem key={field} value={field}>{field}</SelectItem>
                     ))}
